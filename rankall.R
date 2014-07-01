@@ -18,10 +18,10 @@ rankall<- function(outcome, num = "best"){
   
   st<-out[out[,7]==sta,]
   
-  if (outcome == "heart attack"){st<-st[order(st$Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack),] 
+  if (outcome == "heart attack"){index<-with(st, order(Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack,Hospital.Name));st<-st[index,] 
                                  ;data2 <-st[,2];}
-  else if (outcome == "heart failure") {st<-st[order(st$Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure),] ;data2 <-st[,2];}
-  else {st<-st[order(st$Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia),];data2 <-st[,2];}
+  else if (outcome == "heart failure") {index<-with(st, order(Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure,Hospital.Name));st<-st[index,];data2 <-st[,2];}
+  else {index<-with(st, order(Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia,Hospital.Name));st<-st[index,];data2 <-st[,2];}
   
   l<-length(data2) ;
   if(num =="best") {ho<-(data2)[1];h<-as.character(ho); 
