@@ -20,10 +20,10 @@ rankhospital <- function(state, outcome, num = "best"){
   else {st<-st[order(st$Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia),];data2 <-st[,2];}
   
   l<-length(data2) ;
-  if(num =="best") {ho<-sort(data2)[1];return(as.character(ho));}
-  if(num =="worst") {ho<-sort(data2)[l];return(as.character(ho));}
+  if(num =="best") {ho<-(data2)[1];return(as.character(ho));}
+  if(num =="worst") {ho<-(data2)[l];return(as.character(ho));}
   if(num>l) {ho<-NA; return (ho);}
-   ho<-sort(data2)[num];
+   ho<-(data2)[num];
   ##ho<-sort(as.numeric(as.character(data2)))[1];
   return(as.character(ho))
   
